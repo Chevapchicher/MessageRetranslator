@@ -92,6 +92,13 @@ namespace VkApi
             }
         }
 
+        /// <summary>
+        /// Отправить сообщение ВК
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="userId"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static async Task<long?> SendMessage(string accessToken, long userId, string text)
         {
             using var webClient = new WebClient();

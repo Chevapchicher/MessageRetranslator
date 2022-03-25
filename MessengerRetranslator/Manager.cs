@@ -18,9 +18,16 @@ namespace MessengerRetranslator
 
         private async void TgBot_OnSendAnswer(Message mes)
         {
-            var response = await VkApi.VkMessageApi.SendMessage(Properties.Resources.VkToken, long.Parse(mes.From), mes.Text);
+            var response = false;
 
-            if (response != 0)
+            var mesSender = MessageSenderFactory.GetMessageSender(mes.Messenger);
+
+            if (mesSender is not null)
+            {
+                response = await mesSender.SendMessage(mes);
+            }
+
+            if (response)
             {
                 await tgBot.SendMessageAsync(long.Parse(Properties.Resources.TgId), "Сообщение отправлено!");
             }
