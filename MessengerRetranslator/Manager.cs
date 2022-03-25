@@ -16,15 +16,15 @@ namespace MessengerRetranslator
             unreadMessagesGetter.OnSendMessage += UnreadMessagesGetter_OnSendMessage;
         }
 
-        private async void TgBot_OnSendAnswer(Message mes)
+        private async void TgBot_OnSendAnswer((Message message, MessageInfo messageInfo) mes)
         {
             var response = false;
 
-            var mesSender = MessageSenderFactory.GetMessageSender(mes.Messenger);
+            var mesSender = MessageSenderFactory.GetMessageSender(mes.messageInfo.MessengerType);
 
             if (mesSender is not null)
             {
-                response = await mesSender.SendMessage(mes);
+                response = await mesSender.SendMessage(mes.message);
             }
 
             if (response)
@@ -45,7 +45,7 @@ namespace MessengerRetranslator
         {
             foreach (var (message, mesInfo) in messages)
             {
-                string mes = $"Новое сообщение из {message.Messenger} от: {message.From}\n\n{message.Text}";
+                string mes = $"Новое сообщение из {mesInfo.MessengerType} от: {message.From}\n\n{message.Text}";
                 await tgBot.SendMessageAsync(long.Parse(Properties.Resources.TgId), mes, mesInfo);
             }
         }

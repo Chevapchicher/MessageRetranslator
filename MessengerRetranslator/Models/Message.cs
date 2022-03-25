@@ -5,11 +5,6 @@ namespace MessengerRetranslator.Models
     public record Message
     {
         /// <summary>
-        /// Откуда пришло сообщение
-        /// </summary>
-        public MessengerType Messenger { get; set; }
-
-        /// <summary>
         /// От кого сообщение
         /// </summary>
         public string From { get; set; }

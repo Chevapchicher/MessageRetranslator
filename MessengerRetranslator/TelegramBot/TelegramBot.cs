@@ -20,7 +20,7 @@ namespace MessengerRetranslator.TelegramBot
         private SessionState sessionState = SessionState.None;
         private MessageInfo currentMessageInfo;
 
-        public event Action<Message> OnSendAnswer;
+        public event Action<(Message mes, MessageInfo mesInfo)> OnSendAnswer;
         public TelegramBot()
         {
             tgClient = new(botToken);
@@ -50,12 +50,11 @@ namespace MessengerRetranslator.TelegramBot
 
             if (update.Message?.Type == MessageType.Text && sessionState == SessionState.SendingAnswer && currentMessageInfo is not null)
             {
-                OnSendAnswer?.Invoke(new Message
-                {
-                    From = currentMessageInfo.UserId.ToString(),
-                    Messenger = currentMessageInfo.MessengerType,
-                    Text = update.Message?.Text
-                });
+                OnSendAnswer?.Invoke((new Message
+                    {
+                        Text = update.Message?.Text
+                    },
+                    currentMessageInfo));
 
                 sessionState = SessionState.None;
                 currentMessageInfo = null;

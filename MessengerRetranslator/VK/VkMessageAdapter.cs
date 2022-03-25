@@ -10,7 +10,6 @@ namespace MessengerRetranslator.VK
         (
             new()
             {
-                Messenger = MessengerType.Vk,
                 From = sourceMes.From,
                 Text = sourceMes.Text
             },
