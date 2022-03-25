@@ -7,6 +7,6 @@ namespace MessengerRetranslator.Interfaces
     public interface IUnreadMessagesGetter
     {
         // получение непрочитанных сообщений
-        public Task<IEnumerable<Message>> GetUnreadMessages(IAuthInfo authInfo);
+        public Task<IEnumerable<(Message mes, MessageInfo mesInfo)>> GetUnreadMessages(IAuthInfo authInfo);
     }
 }

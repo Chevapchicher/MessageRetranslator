@@ -10,7 +10,7 @@ namespace MessengerRetranslator
 {
     public class UnreadMessagesGetter
     {
-        public event Action<IEnumerable<Message>> OnSendMessage;
+        public event Action<IEnumerable<(Message, MessageInfo)>> OnSendMessage;
 
         private List<(IUnreadMessagesGetter getter, IAuthInfo authInfo)> _messagesGetters;
         private List<Message> _deliveredMessages;
@@ -25,7 +25,7 @@ namespace MessengerRetranslator
                     new VkUnreadMessagesGetter(),
                     new VkAuthInfo
                     {
-                        Token = "VK token"
+                        Token = Properties.Resources.VkToken
                     }
                 )
             };
@@ -38,17 +38,17 @@ namespace MessengerRetranslator
 
         private async void Updater_Elapsed(object sender, ElapsedEventArgs e)
         {
-            foreach (var unreadMessagesGetter in _messagesGetters)
+            foreach (var (getter, authInfo) in _messagesGetters)
             {
                 // все непрочитанные сообщения из мессенджера
-                var allUnreadMessages = await unreadMessagesGetter.getter.GetUnreadMessages(unreadMessagesGetter.authInfo);
+                var allUnreadMessages = await getter.GetUnreadMessages(authInfo);
                 
                 // только те сообщения, которые еще не доставили
-                var unreadMessages = allUnreadMessages.Where(x => !_deliveredMessages.Contains(x)).ToList();
+                var unreadMessages = allUnreadMessages.Where(x => !_deliveredMessages.Contains(x.Item1)).ToList();
                 
                 OnSendMessage?.Invoke(unreadMessages);
 
-                _deliveredMessages.AddRange(unreadMessages);
+                _deliveredMessages.AddRange(unreadMessages.Select(x => x.Item1));
             }
         }
     }

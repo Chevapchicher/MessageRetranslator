@@ -11,5 +11,15 @@
         /// Текст сообщения
         /// </summary>
         public string Text { get; set; }
+
+        /// <summary>
+        /// ID отправителя
+        /// </summary>
+        public long UserId { get; set; }
+
+        /// <summary>
+        /// ID сообщения
+        /// </summary>
+        public long MessageId { get; set; }
     }
 }

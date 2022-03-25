@@ -68,7 +68,7 @@ namespace VkApi
                 var userName = string.Concat(userInfo.first_name, " ", userInfo.last_name);
 
                 return (response?.response?.items ?? new List<Models.ConversationById.Item>())
-                    .Select(item => new GeneralMessage { From = userName, Text = item.text })
+                    .Select(item => new GeneralMessage { From = userName, Text = item.text, MessageId = item.id, UserId = item.from_id })
                     .ToList();
             }
         }
@@ -89,6 +89,18 @@ namespace VkApi
                 var response = JsonSerializer.Deserialize<UserRoot>(responseString);
 
                 return response?.response?.FirstOrDefault();
+            }
+        }
+
+        public static async Task<long?> SendMessage(string accessToken, long userId, string text)
+        {
+            using var webClient = new WebClient();
+            {
+                var responseString = await webClient.DownloadStringTaskAsync(
+                    $"https://api.vk.com/method/messages.send?v=5.131&access_token={accessToken}&user_id={userId}&peer_id={userId}&message={text}&random_id=23632");
+
+                var response = JsonSerializer.Deserialize<SendingResponseRoot>(responseString);
+                return response?.response;
             }
         }
     }

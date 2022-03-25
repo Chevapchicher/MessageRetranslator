@@ -8,7 +8,7 @@ namespace MessengerRetranslator.VK
 {
     public class VkUnreadMessagesGetter : IUnreadMessagesGetter
     {
-        public async Task<IEnumerable<Message>> GetUnreadMessages(IAuthInfo authInfo)
+        public async Task<IEnumerable<(Message mes, MessageInfo mesInfo)>> GetUnreadMessages(IAuthInfo authInfo)
         {
             if (authInfo is not VkAuthInfo vkAuthInfo) return null;
 
