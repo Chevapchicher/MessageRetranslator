@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "q9glNeo9D3GI3eE+1whe5m/lgjCXD/mqyA+XSU+rC5F6Ccu6D3qSBvc46I8mbEpTn1/6cTbmVm7HIBfDuPX+Jg==",
+  "success": true,
+  "projectFilePath": "D:\\Cheva\\MessengerRetranslator\\MessengerRetranslator\\MessengerRetranslator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\79992\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\79992\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
+    "C:\\Users\\79992\\.nuget\\packages\\telegram.bot\\17.0.0\\telegram.bot.17.0.0.nupkg.sha512",
+    "C:\\Users\\79992\\.nuget\\packages\\telegram.bot.extensions.polling\\1.0.2\\telegram.bot.extensions.polling.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

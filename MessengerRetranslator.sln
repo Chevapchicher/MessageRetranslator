@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerRetranslator", "MessengerRetranslator\MessengerRetranslator.csproj", "{04D66AFA-D3B4-4E54-8282-7CF7D59AD01D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VkApi", "VkApi\VkApi.csproj", "{9AE0C03F-ECBD-437B-A62E-06AECFB64159}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04D66AFA-D3B4-4E54-8282-7CF7D59AD01D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D66AFA-D3B4-4E54-8282-7CF7D59AD01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D66AFA-D3B4-4E54-8282-7CF7D59AD01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D66AFA-D3B4-4E54-8282-7CF7D59AD01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AE0C03F-ECBD-437B-A62E-06AECFB64159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AE0C03F-ECBD-437B-A62E-06AECFB64159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AE0C03F-ECBD-437B-A62E-06AECFB64159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AE0C03F-ECBD-437B-A62E-06AECFB64159}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A57AD8D8-E7E1-46B2-884F-0B62DE098D9D}
+	EndGlobalSection
+EndGlobal
