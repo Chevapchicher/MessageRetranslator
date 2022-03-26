@@ -6,9 +6,9 @@ namespace MessengerRetranslator.VK
 {
     public class VkMessageSender : IMessageSender
     {
-        public async Task<bool> SendMessage(Message message)
+        public async Task<bool> SendMessage((Message message, MessageInfo messageInfo) mes)
         {
-            var response = await VkApi.VkMessageApi.SendMessage(Properties.Resources.VkToken, long.Parse(message.From), message.Text);
+            var response = await VkApi.VkMessageApi.SendMessage(Properties.Resources.VkToken, mes.messageInfo.UserId, mes.message.Text);
             return response is > 0;
         }
     }
