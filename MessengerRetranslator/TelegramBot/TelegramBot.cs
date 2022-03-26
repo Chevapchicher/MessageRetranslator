@@ -43,7 +43,7 @@ namespace MessengerRetranslator.TelegramBot
 
             if (!string.IsNullOrEmpty(data))
             {
-                await SendMessageAsync(2006556942, "Введите сообщение:");
+                await SendMessageAsync(long.Parse(Properties.Resources.TgId), "Введите сообщение:");
                 currentMessageInfo = JsonSerializer.Deserialize<MessageInfo>(data);
                 sessionState = SessionState.SendingAnswer;
             }

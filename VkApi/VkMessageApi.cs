@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text.Json;
@@ -101,10 +102,12 @@ namespace VkApi
         /// <returns></returns>
         public static async Task<long?> SendMessage(string accessToken, long userId, string text)
         {
+            Random randomizer = new Random();
+
             using var webClient = new WebClient();
             {
                 var responseString = await webClient.DownloadStringTaskAsync(
-                    $"https://api.vk.com/method/messages.send?v=5.131&access_token={accessToken}&user_id={userId}&peer_id={userId}&message={text}&random_id=23632");
+                    $"https://api.vk.com/method/messages.send?v=5.131&access_token={accessToken}&user_id={userId}&peer_id={userId}&message={text}&random_id={randomizer.Next()}");
 
                 var response = JsonSerializer.Deserialize<SendingResponseRoot>(responseString);
                 return response?.response;
