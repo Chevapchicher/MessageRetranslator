@@ -102,7 +102,7 @@ namespace VkApi
         /// <returns></returns>
         public static async Task<long?> SendMessage(string accessToken, long userId, string text)
         {
-            Random randomizer = new Random();
+            Random randomizer = new();
 
             using var webClient = new WebClient();
             {

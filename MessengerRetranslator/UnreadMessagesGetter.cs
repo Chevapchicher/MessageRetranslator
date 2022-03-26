@@ -13,7 +13,7 @@ namespace MessengerRetranslator
         public event Action<IEnumerable<(Message, MessageInfo)>> OnSendMessage;
 
         private List<(IUnreadMessagesGetter getter, IAuthInfo authInfo)> _messagesGetters;
-        private List<Message> _deliveredMessages;
+        private List<long> _deliveredMessages;
         public UnreadMessagesGetter()
         {
             _deliveredMessages = new();
@@ -44,11 +44,11 @@ namespace MessengerRetranslator
                 var allUnreadMessages = await getter.GetUnreadMessages(authInfo);
                 
                 // только те сообщения, которые еще не доставили
-                var unreadMessages = allUnreadMessages.Where(x => !_deliveredMessages.Contains(x.Item1)).ToList();
+                var unreadMessages = allUnreadMessages.Where(x => !_deliveredMessages.Contains(x.mesInfo.MessageId)).ToList();
                 
                 OnSendMessage?.Invoke(unreadMessages);
 
-                _deliveredMessages.AddRange(unreadMessages.Select(x => x.Item1));
+                _deliveredMessages.AddRange(unreadMessages.Select(x => x.mesInfo.MessageId));
             }
         }
     }
