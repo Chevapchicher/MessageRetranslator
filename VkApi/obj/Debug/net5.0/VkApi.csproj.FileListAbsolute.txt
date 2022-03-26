@@ -9,3 +9,15 @@ D:\Cheva\MessengerRetranslator\VkApi\obj\Debug\net5.0\VkApi.csproj.CoreCompileIn
 D:\Cheva\MessengerRetranslator\VkApi\obj\Debug\net5.0\VkApi.dll
 D:\Cheva\MessengerRetranslator\VkApi\obj\Debug\net5.0\ref\VkApi.dll
 D:\Cheva\MessengerRetranslator\VkApi\obj\Debug\net5.0\VkApi.pdb
+E:\Pjcts\MessageRetranslator\VkApi\bin\Debug\net5.0\VkApi.deps.json
+E:\Pjcts\MessageRetranslator\VkApi\bin\Debug\net5.0\VkApi.dll
+E:\Pjcts\MessageRetranslator\VkApi\bin\Debug\net5.0\ref\VkApi.dll
+E:\Pjcts\MessageRetranslator\VkApi\bin\Debug\net5.0\VkApi.pdb
+E:\Pjcts\MessageRetranslator\VkApi\obj\Debug\net5.0\VkApi.csproj.AssemblyReference.cache
+E:\Pjcts\MessageRetranslator\VkApi\obj\Debug\net5.0\VkApi.GeneratedMSBuildEditorConfig.editorconfig
+E:\Pjcts\MessageRetranslator\VkApi\obj\Debug\net5.0\VkApi.AssemblyInfoInputs.cache
+E:\Pjcts\MessageRetranslator\VkApi\obj\Debug\net5.0\VkApi.AssemblyInfo.cs
+E:\Pjcts\MessageRetranslator\VkApi\obj\Debug\net5.0\VkApi.csproj.CoreCompileInputs.cache
+E:\Pjcts\MessageRetranslator\VkApi\obj\Debug\net5.0\VkApi.dll
+E:\Pjcts\MessageRetranslator\VkApi\obj\Debug\net5.0\ref\VkApi.dll
+E:\Pjcts\MessageRetranslator\VkApi\obj\Debug\net5.0\VkApi.pdb

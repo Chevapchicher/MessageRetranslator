@@ -15,7 +15,7 @@ namespace MessengerRetranslator.TelegramBot
 {
     public class TelegramBot
     {
-        private string botToken = "1706915469:AAFyS2UqQhSP4nrPjxNk73I1TaO4WWaob20";
+        private string botToken = Properties.Resources.TgToken;
         private TelegramBotClient tgClient;
         private SessionState sessionState = SessionState.None;
         private MessageInfo currentMessageInfo;

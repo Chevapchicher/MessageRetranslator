@@ -13,7 +13,5 @@ namespace MessengerRetranslator.Models
         /// Текст сообщения
         /// </summary>
         public string Text { get; set; }
-
-        
     }
 }
