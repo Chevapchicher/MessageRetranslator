@@ -24,7 +24,7 @@ namespace MessengerRetranslator
 
             if (mesSender is not null)
             {
-                response = await mesSender.SendMessage(mes.message);
+                response = await mesSender.SendMessage(mes);
             }
 
             if (response)
