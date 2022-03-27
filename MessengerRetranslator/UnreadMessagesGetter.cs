@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MessengerRetranslator.Interfaces;
+using MessengerRetranslator.Models;
+using MessengerRetranslator.VK;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
-using MessengerRetranslator.Interfaces;
-using MessengerRetranslator.Models;
-using MessengerRetranslator.VK;
 
 namespace MessengerRetranslator
 {
@@ -42,12 +42,19 @@ namespace MessengerRetranslator
             {
                 // все непрочитанные сообщения из мессенджера
                 var allUnreadMessages = await getter.GetUnreadMessages(authInfo);
-                
-                // только те сообщения, которые еще не доставили
-                var unreadMessages = allUnreadMessages.Where(x => !_deliveredMessages.Contains(x.mesInfo.MessageId)).ToList();
-                
-                OnSendMessage?.Invoke(unreadMessages);
 
+                // удаляем из памяти сообщения, которые стали прочитанными
+                var removingMessages = _deliveredMessages.Where(x => !allUnreadMessages
+                        .Select(d => d.mesInfo.MessageId)
+                        .Contains(x))
+                    .ToList();
+
+                removingMessages.ForEach(x => _deliveredMessages.Remove(x));
+
+                // только те сообщения, которые еще не доставили
+                var unreadMessages = allUnreadMessages.Where(x => !_deliveredMessages.Contains(x.mesInfo.MessageId))
+                        .ToList();
+                OnSendMessage?.Invoke(unreadMessages);
                 _deliveredMessages.AddRange(unreadMessages.Select(x => x.mesInfo.MessageId));
             }
         }

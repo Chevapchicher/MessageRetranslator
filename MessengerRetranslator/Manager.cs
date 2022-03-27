@@ -5,6 +5,7 @@ namespace MessengerRetranslator
     public class Manager
     {
         private TelegramBot.TelegramBot tgBot;
+        private UnreadMessagesGetter unreadMessagesGetter;
         public Manager()
         {
             // тг-бот для отправки уведомлений
@@ -12,7 +13,7 @@ namespace MessengerRetranslator
             tgBot.OnSendAnswer += TgBot_OnSendAnswer;
 
             // получатель непрочитанных сообщений
-            UnreadMessagesGetter unreadMessagesGetter = new();
+            unreadMessagesGetter = new();
             unreadMessagesGetter.OnSendMessage += UnreadMessagesGetter_OnSendMessage;
         }
 
